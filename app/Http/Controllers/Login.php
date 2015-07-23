@@ -33,7 +33,7 @@ class Login extends BaseController
     	$oauth_token	= $request->input('oauth_token');
     	$oauth_verifier	= $request->input('oauth_verifier');
 
-    	$access_token	= $this->connection->oauth('oauth/access_token', [ "oauth_verifier" => $oauth_verifier ];
+    	$access_token	= $this->connection->oauth('oauth/access_token', [ "oauth_verifier" => $oauth_verifier ]);
     	
     	return print_r($access_token,true);
     }
