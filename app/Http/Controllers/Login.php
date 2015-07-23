@@ -6,30 +6,25 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 
 class Login extends BaseController
 {
-	private $connection	= null;
-	public function __construct()
-	{
-		$this->connection	= new TwitterOAuth(env('TWITTER_CONSUMER'), env('TWITTER_CONSUMER_SECRET'));
-	}
-
-    public function login()
+    public function login(Request $request)
     {
 
-    	$connection = 
-    	$token = $this->connection->oauth('oauth/request_token');
-    	/*
-	    	Array
-			(
-			    [oauth_token] => dWz8AQAAAAAAguGEAAABTrvkcQc
-			    [oauth_token_secret] => Oz5dXm8S9uEpUd8zGFOP0gz7JPF78oXI
-			    [oauth_callback_confirmed] => true
-			)
-    	 */
+    	$connection = new TwitterOAuth(env('TWITTER_CONSUMER'), env('TWITTER_CONSUMER_SECRET'));
+    	$token = $connection->oauth('oauth/request_token');
+
+    	$request->session()->put('oauth_token', $token['oauth_token']);
+    	$request->session()->put('oauth_token_secret', $token['oauth_token_secret']);
+    	
     	return redirect('https://api.twitter.com/oauth/authenticate?oauth_token='.$token['oauth_token']);
     }
 
     public function oauth2(Request $request)
     {
+    	$oauth_token		= $request->session()->get('oauth_token');
+    	$oauth_token_secret	= $request->session()->get('oauth_token_secret');
+
+    	$connection = new TwitterOAuth(env('TWITTER_CONSUMER'), env('TWITTER_CONSUMER_SECRET'), $oauth_token, $oauth_token_secret);
+
     	$oauth_token	= $request->input('oauth_token');
     	$oauth_verifier	= $request->input('oauth_verifier');
 
