@@ -29,7 +29,12 @@ class Login extends BaseController
     	$oauth_verifier	= $request->input('oauth_verifier');
 
     	$access_token	= $connection->oauth('oauth/access_token', [ "oauth_verifier" => $oauth_verifier ]);
+
+    	$request->session()->put('oauth_token', $access_token['oauth_token']);
+    	$request->session()->put('oauth_token_secret', $access_token['oauth_token_secret']);
+    	$request->session()->put('id', $access_token['user_id']);
+		$request->session()->put('username', $access_token['screen_name']);
     	
-    	return print_r($access_token,true);
+    	return redirect('/');
     }
 }
