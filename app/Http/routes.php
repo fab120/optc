@@ -14,3 +14,11 @@
 $app->get('/', function() use ($app) {
     return view('index');
 });
+
+$app->get('/login', [
+    'as' => 'login', 'uses' => 'Login@login'
+]);
+
+$app->get('/oauth2', [
+    'as' => 'oauth2', 'uses' => 'Login@oauth2'
+]);
