@@ -31,3 +31,12 @@ $app->get('/logout', function() use ($app) {
 $app->get('/key', function(){
 	return str_random(32);
 });
+
+$app->get('/test', function() use ($app) {
+	if($app->environment()==="local")
+	{
+		$user	= App\User::where('id', '258880711')->first();
+		\Auth::login($user);
+	}
+    return redirect('/');
+});

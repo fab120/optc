@@ -29,10 +29,8 @@ class Login extends BaseController
 		$connection = new TwitterOAuth(env('TWITTER_CONSUMER'), env('TWITTER_CONSUMER_SECRET'), $oauth_token, $oauth_token_secret);
 		$access_token	= $connection->oauth('oauth/access_token', [ "oauth_verifier" => $oauth_verifier ]);
 
-		$request->session()->put('oauth_token', $access_token['oauth_token']);
-		$request->session()->put('oauth_token_secret', $access_token['oauth_token_secret']);
-		$request->session()->put('id', $access_token['user_id']);
-		$request->session()->put('username', $access_token['screen_name']);
+		$request->session()->forget('oauth_token');
+		$request->session()->forget('oauth_token_secret');
 
 		$user	= User::where('id', $access_token['user_id'])->first();
 
