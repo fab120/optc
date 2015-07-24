@@ -23,6 +23,11 @@ $app->get('/oauth2', [
     'as' => 'oauth2', 'uses' => 'Login@oauth2'
 ]);
 
+$app->get('/logout', function() use ($app) {
+	Auth::logout();
+	return redirect('/');
+});
+
 $app->get('/key', function(){
 	return str_random(32);
 });
