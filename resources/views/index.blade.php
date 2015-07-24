@@ -15,8 +15,7 @@
 				Since we are using OAUTH2 tokens we don't need (and absolutely don't want) to know your password.
 			</p>
 			<p>
-				By the way you are allowing us to read your timeline and delete tweets.<br>
-				This application won't read more than the last 10 tweets. We will remove all those starting with <strong>Found a Transponder Snail!</strong>.
+				This application will retrive your last 10 tweets and will remove all those starting with <strong>Found a Transponder Snail!</strong>.
 			</p>
 			<h3>You have other doubts?</h3>
 			<p>
