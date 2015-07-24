@@ -26,11 +26,3 @@ $app->get('/oauth2', [
 $app->get('/key', function(){
 	return str_random(32);
 });
-
-$app->get('/user', function() use ($app) {
-
-    $users = App\User::all()->toJson();
-
-    echo $users;
-
-});

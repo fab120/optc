@@ -45,6 +45,8 @@ class Login extends BaseController
 		$user->username				= $access_token['screen_name'];
 
 		$user->save();
+
+		Auth::login($user);
 		
 		return redirect('/');
 	}
