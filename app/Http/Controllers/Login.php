@@ -4,6 +4,7 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 use Illuminate\Http\Request;
 use Abraham\TwitterOAuth\TwitterOAuth;
 use App\User;
+use Auth;
 
 class Login extends BaseController
 {
