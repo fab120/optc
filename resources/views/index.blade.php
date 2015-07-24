@@ -23,6 +23,9 @@
 				You can see the source code on <a href="https://github.com/fab120/optc">GitHub</a>.
 			</p>
 			<h2>Sign-in with Twitter</h2>
+			<p>
+				<a href="{{ url('login') }}"><img src="{{ url('assets/img/signin.png') }}" alt="Sign-in with Twitter"></a>
+			</p>
 		</div>
 	</div>
 </div>
