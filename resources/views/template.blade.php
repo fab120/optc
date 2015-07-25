@@ -48,7 +48,7 @@
 								</ul>
 							</li>
 						@else
-							<li><a href="{{ url('login') }}">Login with Twitter</a></li>
+							<li><a href="{{ url('login') }}"><img src="{{ url('assets/img/signin.png') }}" alt="Sign-in with Twitter"></a></li>
 						@endif
 					</ul>
 				</div>

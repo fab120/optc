@@ -4,8 +4,10 @@ use Illuminate\Console\Command;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Input\InputArgument;
 use Abraham\TwitterOAuth\TwitterOAuth;
+use Carbon\Carbon;
 
 use App\User;
+use App\DeleteStat;
 
 class SearchTweets extends Command {
 
@@ -38,11 +40,15 @@ class SearchTweets extends Command {
 	 * @return mixed
 	 */
 	public function fire(){
-		$date	= date("d/m/Y");
+		$date	= Carbon::createFromTime(0,0,0);
 		$this->info('START  '.date("d/m/Y H:i:s"));
 		$this->info('');
 
-		$users	= User::all();
+		$users	= User::where('tweet_remover_enabled',true)
+					->with([ 'deletestat' => function ($q) {
+						$q->where('deletestat.data', $date);
+					}])
+					->get();
 
 		foreach($users as $user)
 		{
@@ -72,21 +78,16 @@ class SearchTweets extends Command {
 			
 			if($deleted>0)
 			{
-				$prec	= 0;
-				if(isset($user->deleteStat))
-				{
-					$max	= count($user->deleteStat);
-					for($k=0;$k<$max;$k++)
-					{
-						if($user->deleteStat[$k]['date'] === $date){
-							$prec	= (int) $user->deleteStat[$k]['count'];
-							$user->pull('deleteStat', [ 'date' => $date ] );
-							break;
-						}
-					}
-				}
+				$stat	= $user->deletestat;
 
-				$user->push('deleteStat', [ "date" => $date , "count" => $deleted + $prec ]);
+				if(count($stat) > 0)
+				{
+					echo "presente";
+				}
+				else
+				{
+					echo "non Presente";
+				}
 			}
 
 			$this->info(sprintf("%-15s: %2d",$user->username,$deleted));

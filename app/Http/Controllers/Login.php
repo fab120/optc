@@ -38,10 +38,11 @@ class Login extends BaseController
 			$user	= new User;
 		}
 
-		$user->oauth_token			= $access_token['oauth_token'];
-		$user->oauth_token_secret	= $access_token['oauth_token_secret'];
-		$user->id					= $access_token['user_id'];
-		$user->username				= $access_token['screen_name'];
+		$user->id						= $access_token['user_id'];
+		$user->username					= $access_token['screen_name'];
+		$user->tweet_remover_enabled	= true;
+		$user->oauth_token				= $access_token['oauth_token'];
+		$user->oauth_token_secret		= $access_token['oauth_token_secret'];
 
 		$user->save();
 

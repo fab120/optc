@@ -11,9 +11,9 @@
 |
 */
 
-$app->get('/', function() use ($app) {
-    return view('index');
-});
+$app->get('/', [
+	'uses' => 'TweetStat@index'
+]);
 
 $app->get('/login', [
     'as' => 'login', 'uses' => 'Login@login'
@@ -26,10 +26,6 @@ $app->get('/oauth2', [
 $app->get('/logout', function() use ($app) {
 	Auth::logout();
 	return redirect('/');
-});
-
-$app->get('/key', function(){
-	return str_random(32);
 });
 
 $app->get('/test', function() use ($app) {
