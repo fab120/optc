@@ -32,6 +32,10 @@ $app->get('/stats', [
     'uses' => 'Website@stats'
 ]);
 
+$app->get('/links', [
+    'uses' => 'Website@links'
+]);
+
 $app->get('/test', function() use ($app) {
 	if($app->environment()==="local")
 	{

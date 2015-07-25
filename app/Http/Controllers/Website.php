@@ -6,7 +6,7 @@ use Cache;
 
 class Website extends BaseController
 {
-	public function stats()
+	public function stats ()
 	{
 
 		$data = [
@@ -29,6 +29,11 @@ class Website extends BaseController
 		];
 
 		return view("website.stats",$data);
+	}
+
+	public function links ()
+	{
+		return view("website.links");
 	}
 
 }

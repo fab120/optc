@@ -35,6 +35,7 @@
 					<ul class="nav navbar-nav">
 						<li><a href="{{ url('/') }}">Tweet Remover</a></li>
 						<li><a href="{{ url('stats') }}">Statistics</a></li>
+						<li><a href="{{ url('links') }}">OPTC Useful links</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						@if(Auth::check())
