@@ -28,12 +28,13 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="{{ url('/') }}">OPTC Tool</a>
+					<a class="navbar-brand" href="{{ url('/') }}">OPTC Tools</a>
 				</div>
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">Tweet Remover</a></li>
+						<li class="active"><a href="{{ url('/') }}">Tweet Remover</a></li>
+						<li><a href="{{ url('stats') }}">Statistics</a></li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						@if(Auth::check())

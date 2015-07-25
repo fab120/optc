@@ -28,6 +28,10 @@ $app->get('/logout', function() use ($app) {
 	return redirect('/');
 });
 
+$app->get('/stats', [
+    'uses' => 'Website@stats'
+]);
+
 $app->get('/test', function() use ($app) {
 	if($app->environment()==="local")
 	{
