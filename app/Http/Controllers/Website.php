@@ -19,7 +19,7 @@ class Website extends BaseController
 				->select(DB::raw('DATE_FORMAT(data, "%d/%m/%Y") as data'), DB::raw('SUM(count) as total'))
 				->groupby('data')
 				->orderby('data','desc')
-				->take(25)
+				->take(30)
 				->get();
 			}),
 
