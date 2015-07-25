@@ -5,7 +5,9 @@
 <div class="container">
 	<div class="row">
 		<div class="col-sm-12">
-			<h1>Transponder Snail Tweet Remover</h1>
+			<div class="page-header">
+				<h1>Transponder Snail Tweet Remover</h1>
+			</div>
 			<p>This tool will look at your twitter timeline every 10 minutes and will delete the tweets that start with <strong>Found a Transponder Snail!</strong>.</p>
 			@if(Auth::check())
 				@if($max>0)
