@@ -32,7 +32,7 @@ class Login extends BaseController
 		$request->session()->forget('oauth_token');
 		$request->session()->forget('oauth_token_secret');
 
-		$user	= User::where('id', $access_token['user_id'])->first();
+		$user	= User::find($access_token['user_id'])->first();
 
 		if(is_null($user)){
 			$user	= new User;
