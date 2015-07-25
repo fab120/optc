@@ -16,6 +16,10 @@
 					@if($max>1)
 					<h2>History</h2>
 						<table class="table table-bordered">
+							<tr>
+								<th>Day</th>
+								<th>Transponder Snails found</th>
+							</tr>
 							@for($k=1;$k<$max;$k++)
 								<tr>
 									<th>{{ $history[$k]->data->format('d/m/Y') }}</th>
