@@ -6,7 +6,7 @@
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="page-header">
-				<h1>OPTC Tools Statistics</h1>
+				<h1>Statistics</h1>
 			</div>
 			<h3>User using this application:</h3>
 			<p>{{ $user }}</p>
