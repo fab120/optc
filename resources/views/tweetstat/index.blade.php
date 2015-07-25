@@ -43,10 +43,6 @@
 				<p>
 					This application will retrive your last 10 tweets and will remove all those starting with <strong>Found a Transponder Snail!</strong>.
 				</p>
-				<!--<h3>You have other doubts?</h3>
-				<p>
-					You can see the source code on <a href="https://github.com/fab120/optc">GitHub</a>.
-				</p>-->
 				<h2>Sign-in with Twitter</h2>
 				<p>
 					<a href="{{ url('login') }}"><img src="{{ url('assets/img/signin.png') }}" alt="Sign-in with Twitter"></a>
