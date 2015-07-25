@@ -40,15 +40,10 @@ class SearchTweets extends Command {
 	 * @return mixed
 	 */
 	public function fire(){
-		$date	= Carbon::createFromTime(0,0,0);
 		$this->info('START  '.date("d/m/Y H:i:s"));
 		$this->info('');
 
-		$users	= User::where('tweet_remover_enabled',true)
-					->with([ 'deletestats' => function ($q) use ($date) {
-						$q->where('deletestats.data', $date);
-					}])
-					->get();
+		$users	= User::where('tweet_remover_enabled',true)->get();
 
 		foreach($users as $user)
 		{
@@ -66,6 +61,21 @@ class SearchTweets extends Command {
 						if($connection->getLastHttpCode() === 200)
 						{
 							$deleted++;
+							$tweet_date	= Carbon::parse($tweet->created_at)->setTime(0,0,0);
+
+							$deleteStat	= DeleteStat::where('user_id',$user->id)->where('data',$tweet_date)->first();
+
+							if(is_null($deleteStat)){
+								$deleteStat	= new DeleteStat;
+
+								$deleteStat->user_id	= $user->id;
+								$deleteStat->data		= $tweet_date;
+								$deleteStat->count		= 1;
+							} else {
+								$deleteStat->count	+= 1;
+							}
+
+							$deleteStat->save();
 						} 
 						else
 						{
@@ -73,27 +83,6 @@ class SearchTweets extends Command {
 							$this->error($tweet->text);
 						}
 					}
-				}
-			}
-			
-			if($deleted>0)
-			{
-				$stat	= $user->deletestats;
-
-				if(count($stat) === 1)
-				{
-					$user->deletestats[0]->count	+= $deleted;
-					$user->push();
-				}
-				else
-				{
-					$deleteStat	= new DeleteStat;
-
-					$deleteStat->user_id	= $user->id;
-					$deleteStat->data		= $date;
-					$deleteStat->count		= $deleted;
-
-					$deleteStat->save();
 				}
 			}
 
