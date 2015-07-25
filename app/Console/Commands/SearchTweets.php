@@ -45,8 +45,8 @@ class SearchTweets extends Command {
 		$this->info('');
 
 		$users	= User::where('tweet_remover_enabled',true)
-					->with([ 'deletestat' => function ($q) {
-						$q->where('deletestat.data', $date);
+					->with([ 'deletestats' => function ($q) use ($date) {
+						$q->where('deletestats.data', $date);
 					}])
 					->get();
 
@@ -78,15 +78,22 @@ class SearchTweets extends Command {
 			
 			if($deleted>0)
 			{
-				$stat	= $user->deletestat;
+				$stat	= $user->deletestats;
 
-				if(count($stat) > 0)
+				if(count($stat) === 1)
 				{
-					echo "presente";
+					$user->deletestats[0]->count	+= $deleted;
+					$user->push();
 				}
 				else
 				{
-					echo "non Presente";
+					$deleteStat	= new DeleteStat;
+
+					$deleteStat->user_id	= $user->id;
+					$deleteStat->data		= $date;
+					$deleteStat->count		= $deleted;
+
+					$deleteStat->save();
 				}
 			}
 
