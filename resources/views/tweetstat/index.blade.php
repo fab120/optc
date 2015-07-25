@@ -11,8 +11,17 @@
 			<p>This tool will look at your twitter timeline every 10 minutes and will delete the tweets that start with <strong>Found a Transponder Snail!</strong>.</p>
 			@if(Auth::check())
 				@if($max>0)
-					<h2>Tweets removed today</h2>
-					<p>{{ $history[0]->count }}</p>
+					<h2>Today</h2>
+					<table class="table table-bordered">
+						<tr>
+							<th>Day</th>
+							<th>Transponder Snails found</th>
+						</tr>
+						<tr>
+							<th>{{ $history[0]->data->format('d/m/Y') }}</th>
+							<td>{{ $history[0]->count }}</td>
+						</tr>
+					</table>
 					@if($max>1)
 					<h2>History</h2>
 						<table class="table table-bordered">
