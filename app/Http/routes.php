@@ -36,6 +36,19 @@ $app->get('/links', [
     'uses' => 'Website@links'
 ]);
 
+$app->get('/version', function() use ($app) {
+	$file = base_path('VERSION.txt');
+
+	if(file_exists($file))
+	{
+		return "Version: ".file_get_contents($file);
+	}
+	else
+	{
+		return "Version: development";
+	}
+});
+
 $app->get('/test', function() use ($app) {
 	if($app->environment()==="local")
 	{
