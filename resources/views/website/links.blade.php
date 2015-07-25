@@ -14,10 +14,11 @@
 				<a href="http://op-tc-eng-version.blogspot.com.au/" target="_blank">For english version game</a><br>
 				<a href="http://onepiece-cruise.blogspot.com.au/" target="_blank">For japan version game</a>
 			</p>
-			<h4>Facebook group (where to find friends)</h4>
+			<h4>Groups (where to find friends)</h4>
 			<p>
-				<a href="https://www.facebook.com/groups/1544989452435630/" target="_blank">For english version game</a><br>
-				<a href="https://www.facebook.com/groups/1382806885367146/" target="_blank">For japan version game</a>
+				<a href="https://www.facebook.com/groups/1544989452435630/" target="_blank">Facebook for english version game</a><br>
+				<a href="https://www.facebook.com/groups/1382806885367146/" target="_blank">Facebook for japan version game</a><br>
+				<a href="https://www.reddit.com/r/OnePieceTC/" target="_blank">Reddit /r/OnePieceTC</a>
 			</p>
 			<h4>Units table</h4>
 			<p>
