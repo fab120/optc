@@ -41,7 +41,7 @@
 					<h2>We have not removed any tweet from your account yet.</h2>
 				@endif
 				<p class="text-muted">
-					All times are GMT.<br>
+					All dates are in PST time.<br>
 					It may take up to 10 minutes to this page to be updated.
 				</p>
 			@else
