@@ -61,7 +61,7 @@ class SearchTweets extends Command {
 						if($connection->getLastHttpCode() === 200)
 						{
 							$deleted++;
-							$tweet_date	= Carbon::parse($tweet->created_at)->setTime(0,0,0);
+							$tweet_date	= Carbon::parse($tweet->created_at)->setTimezone('PST')->setTime(0,0,0);
 
 							$deleteStat	= DeleteStat::where('user_id',$user->id)->where('data',$tweet_date)->first();
 
