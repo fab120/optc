@@ -40,7 +40,10 @@
 				@else
 					<h2>We have not removed any tweet from your account yet.</h2>
 				@endif
-				<p class="text-muted">It may take up to 10 minutes to this page to be updated</p>
+				<p class="text-muted">
+					All times are GMT.<br>
+					It may take up to 10 minutes to this page to be updated.
+				</p>
 			@else
 				<h2>Statistics</h2>
 				<p>You can see how many transponder snails have you found every day.</p>
