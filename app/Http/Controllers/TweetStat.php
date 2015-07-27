@@ -28,8 +28,9 @@ class TweetStat extends BaseController
 					{
 						$data['history'][]	= (object) [ "data" => $nowPST, "count" => 0 ];
 					}
-					$data['history'][]	= $h;
 				}
+
+				$data['history'][]	= $h;
 
 				$first = false;
 			}
