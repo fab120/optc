@@ -5,6 +5,7 @@ use App\User;
 use App\DeleteStat;
 use Auth;
 use Carbon\Carbon;
+use DateInterval;
 
 class TweetStat extends BaseController
 {
@@ -17,9 +18,9 @@ class TweetStat extends BaseController
 		{
 			$data['history']	= [];
 
-			$nowPST = Carbon::now()->setTimezone('PST')->sub(new DateInterval('PT4H');
+			$nowPST = Carbon::now()->setTimezone('PST')->sub(new DateInterval('PT4H'));
 
-			$hist	= $hist	= DeleteStat::where('user_id',Auth::user()->id)->orderby('data','desc')->take(10)->get();
+			$hist	= DeleteStat::where('user_id',Auth::user()->id)->orderby('data','desc')->take(10)->get();
 			$first 	= true;
 			foreach($hist as $h)
 			{
