@@ -15,15 +15,26 @@ class TweetStat extends BaseController
 
 		if(Auth::check())
 		{
-			$data['history']	= DeleteStat::where('user_id',Auth::user()->id)->orderby('data','desc')->take(11)->get();
-			$data['max']		= count($data['history']);
+			$data['history']	= [];
 
-			/*$nowPST = Carbon::now()->setTimezone('PST')->format('d/m/Y');
+			$nowPST = Carbon::now()->setTimezone('PST');
 
-			if($data['history'][0]->data->format('d/m/Y') !== $nowPST)
+			$hist	= $hist	= DeleteStat::where('user_id',Auth::user()->id)->orderby('data','desc')->take(10)->get();
+			$first 	= true;
+			foreach($hist as $h)
 			{
-				array_unshift($data['history'],[ "data" => $nowPST, "count" => 0 ]);
-			}*/
+				if($first){
+					if($h->data->format('d/m/Y') !== $nowPST->format('d/m/Y'))
+					{
+						$data['history'][]	= (object) [ "data" => $nowPST, "count" => 0 ];
+					}
+					$data['history'][]	= $h;
+				}
+
+				$first = false;
+			}
+
+			$data['max']		= count($data['history']);
 		}
 
 		return view('tweetstat.index', $data);
