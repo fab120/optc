@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 		<link rel="stylesheet" href="{{ url('assets/css/main.css') }}">
-		<script src="js/vendor/modernizr-2.8.3.min.js"></script>
+		<script src="{{ url('assets/js/modernizr-2.8.3.min.js') }}"></script>
 	</head>
 	<body>
 		<!--[if lt IE 8]>
@@ -22,7 +22,7 @@
 		<nav class="navbar navbar-default">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
 						<span class="sr-only">Toggle navigation</span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
@@ -31,7 +31,7 @@
 					<a class="navbar-brand" href="{{ url('/') }}">OPTC Tools</a>
 				</div>
 
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<div class="collapse navbar-collapse" id="main-menu">
 					<ul class="nav navbar-nav">
 						<li><a href="{{ url('/') }}">Tweet Remover</a></li>
 						<li><a href="{{ url('stats') }}">Statistics</a></li>
@@ -74,8 +74,7 @@
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-		<!--<script src="js/plugins.js"></script>
-		<script src="js/main.js"></script> -->
+		<script src="{{ url('assets/js/main.js') }}"></script>
 
 		<script>
 			(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
