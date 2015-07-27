@@ -24,7 +24,7 @@
 				@endforeach
 			</table>
 			<p class="text-muted">
-				All dates are in PST time.
+				All days start at 4am PST time.
 			</p>
 			<h3>Total Tweets deleted:</h3>
 			<p>{{ $history_total }}</p>
