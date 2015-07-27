@@ -32,6 +32,10 @@
 			<p>
 				<a href="https://optc.github.io/damage/" target="_blank">Webapp for calculating your team damage</a>
 			</p>
+			<h4>Skill books location</h4>
+			<p>
+				<a href="http://optkurisu.blogspot.it/p/manual-locations.html" target="_blank">Skill books location</a>
+			</p>
 		</div>
 	</div>
 </div>
