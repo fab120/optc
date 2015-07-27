@@ -17,7 +17,7 @@ class TweetStat extends BaseController
 		{
 			$data['history']	= [];
 
-			$nowPST = Carbon::now()->setTimezone('PST')->sub(new DateInterval('PT4H'));
+			$nowPST = Carbon::now()->setTimezone('PST')->sub(new DateInterval('PT4H');
 
 			$hist	= $hist	= DeleteStat::where('user_id',Auth::user()->id)->orderby('data','desc')->take(10)->get();
 			$first 	= true;
