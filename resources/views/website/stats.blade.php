@@ -10,6 +10,8 @@
 			</div>
 			<h3>Total users:</h3>
 			<p>{{ $user }}</p>
+			<h3>Total Tweets deleted:</h3>
+			<p>{{ $history_total }}</p>
 			<h3>Tweets deleted in last 30 days:</h3>
 			<table class="table table-bordered">
 				<tr>
@@ -26,8 +28,6 @@
 			<p class="text-muted">
 				All days start at 4am PST time.
 			</p>
-			<h3>Total Tweets deleted:</h3>
-			<p>{{ $history_total }}</p>
 		</div>
 	</div>
 </div>
