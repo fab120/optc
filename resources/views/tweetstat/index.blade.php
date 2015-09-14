@@ -42,6 +42,7 @@
 				@endif
 				<p class="text-muted">
 					All days start at 4am PST time.<br>
+					Current PST time: {{ $pstTime }}.<br>
 					It may take up to 10 minutes to this page to be updated.
 				</p>
 			@else

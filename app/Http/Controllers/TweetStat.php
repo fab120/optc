@@ -37,6 +37,7 @@ class TweetStat extends BaseController
 			}
 
 			$data['max']		= count($data['history']);
+			$data['pstTime']	= Carbon::now()->setTimezone('UTC')->sub(new DateInterval('PT8H'));
 		}
 
 		return view('tweetstat.index', $data);
