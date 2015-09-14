@@ -57,3 +57,7 @@ $app->get('/test', function() use ($app) {
 	}
     return redirect('/');
 });
+
+$app->get('/time', function() use ($app) {
+    return \Carbon\Carbon::now(new DateTimeZone('UTC'))->sub(new DateInterval('PT12H'));
+});

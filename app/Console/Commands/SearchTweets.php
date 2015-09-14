@@ -44,7 +44,7 @@ class SearchTweets extends Command {
 		$this->info('START  '.date("d/m/Y H:i:s"));
 		$this->info('');
 
-		$newDay = new DateInterval('PT4H'); //Snail day start at 4am PST
+		$newDay = new DateInterval('PT12H'); //Snail day start at 4am PST
 
 		$users	= User::where('tweet_remover_enabled',true)->get();
 
@@ -64,7 +64,7 @@ class SearchTweets extends Command {
 						if($connection->getLastHttpCode() === 200)
 						{
 							$deleted++;
-							$tweet_date	= Carbon::parse($tweet->created_at)->setTimezone('PST')->sub($newDay)->setTime(0,0,0);
+							$tweet_date	= Carbon::parse($tweet->created_at)->setTimezone('UTC')->sub($newDay)->setTime(0,0,0);
 
 							$deleteStat	= DeleteStat::where('user_id',$user->id)->where('data',$tweet_date)->first();
 
