@@ -26,6 +26,7 @@ class Website extends BaseController
 			"history_total"	=> Cache::remember('stats_history_total', 60, function() {
 				return DB::table('deletestats')->select(DB::raw("SUM(count) as total"))->first()->total;
 			}),
+			"pstTime"		=> Carbon::now()->setTimezone('UTC')->sub(new DateInterval('PT8H')),
 		];
 
 		return view("website.stats",$data);

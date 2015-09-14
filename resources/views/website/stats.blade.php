@@ -26,7 +26,8 @@
 				@endforeach
 			</table>
 			<p class="text-muted">
-				All days start at 4am PST time.
+				All days start at 4am PST time.<br>
+				Current PST time: {{ $pstTime }}.
 			</p>
 		</div>
 	</div>
