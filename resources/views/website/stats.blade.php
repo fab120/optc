@@ -20,7 +20,7 @@
 				</tr>
 				@foreach($history as $h)
 					<tr>
-						<th>{{ $h->data }}</th>
+						<th>{{ $h->dataf }}</th>
 						<td>{{ $h->total }}</td>
 					</tr>
 				@endforeach

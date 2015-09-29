@@ -18,7 +18,7 @@ class Website extends BaseController
 			
 			"history"	=> Cache::remember('stats_history', 30, function() {
 				return DB::table('deletestats')
-				->select(DB::raw('DATE_FORMAT(data, "%d/%m/%Y") as data'), DB::raw('SUM(count) as total'))
+				->select(DB::raw('DATE_FORMAT(data, "%d/%m/%Y") as dataf'), DB::raw('SUM(count) as total'))
 				->groupby('data')
 				->orderby('data','desc')
 				->take(30)
