@@ -57,6 +57,18 @@
 			</div>
 		</nav>
 
+		<section class="header-message">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-12">
+						<div class="alert alert-warning" role="alert">
+							<strong>Warning:</strong> This service will be discontinued the 31th of January 2016.
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
 		@yield('content')
 
 		<footer class="footer">

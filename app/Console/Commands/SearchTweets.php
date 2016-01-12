@@ -41,6 +41,14 @@ class SearchTweets extends Command {
 	 * @return mixed
 	 */
 	public function fire(){
+
+		$dateInt = (int) date("Ymd");
+
+		if($dateInt > 20160131){
+			$this->info('Service discontinued');
+			return;
+		}
+
 		$this->info('START  '.date("d/m/Y H:i:s"));
 		$this->info('');
 
